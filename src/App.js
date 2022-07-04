@@ -39,6 +39,11 @@ function App() {
     setAtividades([...atividades, { ...atividade }]);
   }
 
+  function deletarAtividade(id) {
+    const atividadesFiltradas = atividades.filter(atividade => atividade.id !== id);
+    setAtividades([...atividadesFiltradas]);
+  }
+
   function prioridadeLabel(param) {
     switch (param) {
       case '1':
@@ -52,7 +57,7 @@ function App() {
     }
   }
 
-  function prioridadeStyle(param,icone) {
+  function prioridadeStyle(param, icone) {
     switch (param) {
       case '1':
         return icone ? "smile" : 'success';
@@ -70,8 +75,8 @@ function App() {
       <form className="row g-3">
         <div className="col-md-6">
           <label className="form-label">Id</label>
-          <input id="id" type="text" className="form-control border-secondary"  readOnly
-            value = {Math.max.apply(Math, atividades.map(item => item.id)) + 1}
+          <input id="id" type="text" className="form-control border-secondary" readOnly
+            value={Math.max.apply(Math, atividades.map(item => item.id)) + 1}
           />
         </div>
         <div className="col-md-6">
@@ -123,7 +128,10 @@ function App() {
                   <i className='fas fa-pen me-2'></i>
                   Editar
                 </button>
-                <button className="btn btn-sm btn-outline-danger">
+                <button
+                  className="btn btn-sm btn-outline-danger"
+                  onClick={() => deletarAtividade(ativ.id)}
+                >
                   <i className='fas fa-trash me-2'></i>
                   Deletar
                 </button>
