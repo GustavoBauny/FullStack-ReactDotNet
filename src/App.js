@@ -6,7 +6,7 @@ import './App.css';
 let initialState = [
   {
     id: 1,
-    prioridade: '2',
+    prioridade: '1',
     titulo: "Título",
     descricao: "Primeira Atividade",
   },
@@ -15,6 +15,12 @@ let initialState = [
     prioridade: '2',
     titulo: "Título",
     descricao: "Segunda Atividade",
+  },
+  {
+    id: 3,
+    prioridade: '3',
+    titulo: "Título",
+    descricao: "Terceira Atividade",
   },
 ];
 
@@ -46,14 +52,14 @@ function App() {
     }
   }
 
-  function prioridadeStyle(param) {
+  function prioridadeStyle(param,icone) {
     switch (param) {
       case '1':
-        return "smile";
+        return icone ? "smile" : 'success';
       case '2':
-        return "meh";
+        return icone ? "meh" : 'warning';
       case '3':
-        return "frown";
+        return icone ? "frown" : 'danger';
       default:
         return "Não definido";
     }
@@ -64,11 +70,13 @@ function App() {
       <form className="row g-3">
         <div className="col-md-6">
           <label className="form-label">Id</label>
-          <input id="id" type="text" className="form-control" />
+          <input id="id" type="text" className="form-control border-secondary"  readOnly
+            value = {Math.max.apply(Math, atividades.map(item => item.id)) + 1}
+          />
         </div>
         <div className="col-md-6">
           <label className="form-label">Prioridade</label>
-          <select id="prioridade" className="form-select">
+          <select id="prioridade" className="form-select border-secondary">
             <option defaultValue="0">Selecionar...</option>
             <option value="1">Baixa</option>
             <option value="2">Regular</option>
@@ -77,11 +85,11 @@ function App() {
         </div>
         <div className="col-md-6">
           <label className="form-label">Título</label>
-          <input id="titulo" type="text" className="form-control" />
+          <input id="titulo" type="text" placeholder='Digite o Título' className="form-control border-secondary" />
         </div>
         <div className="col-md-6">
           <label className="form-label">Descrição</label>
-          <input id="descricao" type="text" className="form-control" />
+          <input id="descricao" type="text" placeholder='Digite a Descrição' className="form-control border-secondary" />
         </div>
         <hr />
         <div className="col-12">
@@ -94,7 +102,7 @@ function App() {
 
       <div className="mt-3">
         {atividades.map((ativ) => (
-          <div key={ativ.id} className="card mb-1 shadow-sm" >
+          <div key={ativ.id} className="card mb-1 shadow-sm border-secondary">
             <div className="card-body">
               <div className='.d-flex.justif-content-between'>
                 <h5 className='card-title'>
@@ -103,8 +111,8 @@ function App() {
                 </h5>
                 <h6>
                   Prioridade:
-                  <span className='ms-1 text-black'>
-                    <i className={'me-1 far fa-' + prioridadeStyle(ativ.prioridade)}></i>
+                  <span className={'ms-1 text-' + prioridadeStyle(ativ.prioridade)}>
+                    <i className={'me-1 far fa-' + prioridadeStyle(ativ.prioridade, true)}></i>
                     {prioridadeLabel(ativ.prioridade)}
                   </span>
                 </h6>
