@@ -50,24 +50,32 @@ function App() {
       <div className="mt-3">
         {atividades.map((ativ) => (
           <div key={ativ.id} className="card mb-1 shadow-sm" >
-              <div className="card-body">
-                <div className='.d-flex.justif-content-between'>
-                    <h5 className='card-title'>
-                    <span className="badge bg-secondary me-2">{ativ.id}</span>
-                          - Título
-                    </h5>
-                    <h6>
-                        Prioridade: 
-                        <span className='ms-1 text-black'>
-                          <i className='me-1 far fa-meh'></i>
-                          Regular
-                        </span>
-                    </h6>
-                </div>
-                <p className="card-text">
-                        {ativ.descricao}
-                </p>
+            <div className="card-body">
+              <div className='.d-flex.justif-content-between'>
+                <h5 className='card-title'>
+                  <span className="badge bg-secondary me-2">{ativ.id}</span>
+                  - Título
+                </h5>
+                <h6>
+                  Prioridade:
+                  <span className='ms-1 text-black'>
+                    <i className='me-1 far fa-meh'></i>
+                    Regular
+                  </span>
+                </h6>
               </div>
+              <p className="card-text">{ativ.descricao}</p>
+              <div className='d-flex.justify-content-end'>
+                  <button className="btn btn-sm btn-outline-primary me-2">
+                      <i className='fas fa-pen me-2'></i>
+                      Editar
+                  </button>
+                  <button className="btn btn-sm btn-outline-danger">
+                      <i className='fas fa-trash me-2'></i>
+                      Deletar
+                  </button>
+              </div>
+            </div>
           </div>
         ))}
       </div>
