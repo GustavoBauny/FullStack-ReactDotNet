@@ -49,9 +49,26 @@ function App() {
 
       <div className="mt-3">
         {atividades.map((ativ) => (
-          <li key={ativ.id} className="list-group-item">
-            {ativ.id} - {ativ.descricao}
-          </li>
+          <div key={ativ.id} className="card mb-1 shadow-sm" >
+              <div className="card-body">
+                <div className='.d-flex.justif-content-between'>
+                    <h5 className='card-title'>
+                    <span className="badge bg-secondary me-2">{ativ.id}</span>
+                          - Título
+                    </h5>
+                    <h6>
+                        Prioridade: 
+                        <span className='ms-1 text-black'>
+                          <i className='me-1 far fa-meh'></i>
+                          Regular
+                        </span>
+                    </h6>
+                </div>
+                <p className="card-text">
+                        {ativ.descricao}
+                </p>
+              </div>
+          </div>
         ))}
       </div>
     </>
