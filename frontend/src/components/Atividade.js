@@ -1,38 +1,40 @@
-import React from 'react'
+import React from 'react';
 
 export default function Atividade(props) {
-
   function prioridadeLabel(param) {
     switch (param) {
       case '1':
-        return "Baixa";
+        return 'Baixa';
       case '2':
-        return "Regular";
+        return 'Normal';
       case '3':
-        return "Alta";
+        return 'Alta';
       default:
-        return "Não definido";
+        return 'Não definido';
     }
   }
 
   function prioridadeStyle(param, icone) {
     switch (param) {
       case '1':
-        return icone ? "smile" : 'success';
+        return icone ? 'smile' : 'success';
       case '2':
-        return icone ? "meh" : 'warning';
+        return icone ? 'meh' : 'warning';
       case '3':
-        return icone ? "frown" : 'danger';
+        return icone ? 'frown' : 'danger';
       default:
-        return "Não definido";
+        return 'Não definido';
     }
   }
+
   return (
     <div className="card mb-1 shadow-sm border-secondary">
-      <div className="card-body">
-        <div className='.d-flex.justif-content-between'>
+      <div className='card-body'>
+        <div className='d-flex justify-content-between'>
           <h5 className='card-title'>
-            <span className="badge bg-secondary me-2">{props.ativ.id}</span>
+            <span className='badge bg-secondary me-1'>
+              {props.ativ.id}
+            </span>
             - {props.ativ.titulo}
           </h5>
           <h6>
@@ -43,14 +45,17 @@ export default function Atividade(props) {
             </span>
           </h6>
         </div>
-        <p className="card-text">{props.ativ.descricao}</p>
-        <div className='d-flex.justify-content-end'>
-          <button className="btn btn-sm btn-outline-primary me-2">
+        <p className='card-text'>{props.ativ.descricao}</p>
+        <div className='d-flex justify-content-end pt-2 m-0 border-top'>
+          <button
+            className='btn btn-sm btn-outline-primary me-2'
+            onClick={() => props.pegarAtividade(props.ativ.id)}
+          >
             <i className='fas fa-pen me-2'></i>
             Editar
           </button>
           <button
-            className="btn btn-sm btn-outline-danger"
+            className='btn btn-sm btn-outline-danger'
             onClick={() => props.deletarAtividade(props.ativ.id)}
           >
             <i className='fas fa-trash me-2'></i>
@@ -59,5 +64,5 @@ export default function Atividade(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
