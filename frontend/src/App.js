@@ -16,6 +16,11 @@ function App() {
         const response = await api.get('atividade');
         return response.data;
     };
+
+    const novaAtividade = () => {
+        setAtividade({id: 0});
+        handleAtividadeModal();
+    }
   
   useEffect(() => {
       const getAtividades = async () => {
@@ -31,7 +36,7 @@ function App() {
     handleAtividadeModal();
   }
 
-  function cancelarAtividade() {
+  const cancelarAtividade = () => {
     setAtividade({ id: 0 });
     handleAtividadeModal();
   }
@@ -56,7 +61,7 @@ function App() {
     }
   };
 
-  function pegarAtividade(id) {
+  const pegarAtividade = (id) => {
     const atividade = atividades.filter((atividade) => atividade.id === id);
     setAtividade(atividade[0]);
     handleAtividadeModal();
@@ -66,7 +71,7 @@ function App() {
     <> 
       <div className='d-flex justify-content-between align-items-end mt-2 pb-3 border-bottom border-1'>
         <h1 className='m-0 p-0'>Atividade {atividade.id !== 0 ? atividade.id : ''}</h1> 
-        <Button variant="outline-secondary" onClick={handleAtividadeModal}>
+        <Button variant="outline-secondary" onClick={novaAtividade}>
         <i className='fas fa-plus'></i>
        </Button>
       </div>

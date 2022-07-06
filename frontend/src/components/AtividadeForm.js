@@ -89,23 +89,23 @@ export default function AtividadeForm(props) {
                 <div className='col-12 mt-0'>
                     {atividade.id === 0 ? (
                         <button
-                            className='btn btn-outline-secondary'
+                            className='btn btn-outline-dark border-secondary me-2'
                             type='submit'
                         >
                             <i className='fas fa-plus me-2'></i>
-                            Atividade
+                            Salvar
                         </button>
                     ) : (
                         <>
                             <button
-                                className='btn btn-outline border-secondary me-2'
+                                className='btn btn-outline-dark border-secondary me-2'
                                 type='submit'
                             >
                                 <i className='fas fa-plus me-2'></i>
                                 Salvar
                             </button>
                             <button
-                                className='btn btn-outline border-secondary'
+                                className='btn btn-outline-dark border-secondary'
                                 onClick={handleCancelar}
                             >
                                 <i className='fas fa-plus me-2'></i>
