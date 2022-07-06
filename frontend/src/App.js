@@ -1,16 +1,29 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import {Button, Modal} from 'react-bootstrap';
+import {Button, Modal, ModalFooter} from 'react-bootstrap';
 import AtividadeForm from './components/AtividadeForm';
 import AtividadeLista from './components/AtividadeLista';
 import api from './api/atividade';
 
 function App() {
   const [showAtividadeModal, setShowAtividadeModal] = useState(false);
+  const [smShowConfirmModal, setSmShowConfirmModal] = useState(false);
+  
   const [atividades, setAtividades] = useState([]);
   const [atividade, setAtividade] = useState({ id: 0 });
 
   const handleAtividadeModal = () => setShowAtividadeModal(!showAtividadeModal);
+
+  const handleConfirmModal = (id) => {
+      if (id !== 0 && id !== undefined){
+        const atividade = atividades.filter((atividade) => atividade.id === id);
+        setAtividade(atividade[0]);
+      }    
+      else {
+          setAtividade({id:0});
+      }
+      setSmShowConfirmModal(!smShowConfirmModal);
+  };
 
   const pegaTodasAtividades = async () => {
         const response = await api.get('atividade');
@@ -52,6 +65,7 @@ function App() {
   }
 
   const deletarAtividade = async (id) => {
+    handleConfirmModal(0);
     if (await api.delete(`atividade/${id}`))
     {
       const atividadesFiltradas = atividades.filter(
@@ -78,8 +92,8 @@ function App() {
         
       <AtividadeLista
         atividades={atividades}
-        deletarAtividade={deletarAtividade}
         pegarAtividade={pegarAtividade}
+        handleConfirmModal={handleConfirmModal}
       />
 
       <Modal show={showAtividadeModal} onHide={handleAtividadeModal}>
@@ -95,6 +109,29 @@ function App() {
           atividades={atividades}
         />
         </Modal.Body>
+      </Modal>
+
+      <Modal 
+        size='sm'
+        show={smShowConfirmModal} 
+        onHide={handleConfirmModal}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Excluindo Atividade </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            Tem certeza que deseja Excluir a Atividade {atividade.id}
+        </Modal.Body>
+        <ModalFooter className='d-flex justify-content-between'>
+            <button className='btn btn-outline-dark me-2' onClick={() => deletarAtividade(atividade.id)}>
+                  <i className='fas fa-check me-2'></i>
+                  Sim
+            </button>
+            <button className='btn btn-outline-dark me-2' onClick={() => handleConfirmModal(0)}>
+            <i className='fas fa-times me-2'></i>
+                  Não
+            </button>
+        </ModalFooter>
       </Modal>
 
     </>
