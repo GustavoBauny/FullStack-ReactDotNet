@@ -3,12 +3,12 @@ import React from 'react';
 export default function Atividade(props) {
   function prioridadeLabel(param) {
     switch (param) {
-      case '1':
-        return 'Baixa';
-      case '2':
-        return 'Normal';
-      case '3':
-        return 'Alta';
+      case 'Baixa':
+          return param;
+      case 'Regular':
+          return param;
+      case 'Alta':
+          return param;
       default:
         return 'Não definido';
     }
@@ -16,14 +16,14 @@ export default function Atividade(props) {
 
   function prioridadeStyle(param, icone) {
     switch (param) {
-      case '1':
+      case 'Baixa':
         return icone ? 'smile' : 'success';
-      case '2':
+      case 'Regular':
         return icone ? 'meh' : 'warning';
-      case '3':
+      case 'Alta':
         return icone ? 'frown' : 'danger';
       default:
-        return 'Não definido';
+        return icone ? 'meh-blank' : 'secondary';
     }
   }
 
