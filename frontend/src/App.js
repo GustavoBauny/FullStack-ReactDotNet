@@ -5,7 +5,6 @@ import AtividadeLista from './components/AtividadeLista';
 import api from './api/atividade';
 
 function App() {
-  const [index] = useState(0);
   const [atividades, setAtividades] = useState([]);
   const [atividade, setAtividade] = useState({ id: 0 });
 
@@ -22,8 +21,9 @@ function App() {
       getAtividades();
   }, []);
 
-  function addAtividade(ativ) {
-    setAtividades([...atividades, { ...ativ, id: index }]);
+  const addAtividade = async (ativ) => {
+    const response = await api.post('atividade', ativ)
+    setAtividades([...atividades, response.data]);
   }
 
   function cancelarAtividade() {
@@ -37,12 +37,15 @@ function App() {
     setAtividade({ id: 0 });
   }
 
-  function deletarAtividade(id) {
-    const atividadesFiltradas = atividades.filter(
+  const deletarAtividade = async (id) => {
+    if (await api.delete(`atividade/${id}`))
+    {
+      const atividadesFiltradas = atividades.filter(
       (atividade) => atividade.id !== id
     );
-    setAtividades([...atividadesFiltradas]);
-  }
+      setAtividades([...atividadesFiltradas]);
+    }
+  };
 
   function pegarAtividade(id) {
     const atividade = atividades.filter((atividade) => atividade.id === id);
