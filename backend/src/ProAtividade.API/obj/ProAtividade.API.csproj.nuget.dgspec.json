@@ -25,7 +25,14 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Data/ProAtividade.Data.csproj": {
+                "projectPath": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Data/ProAtividade.Data.csproj"
+              },
+              "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/ProAtividade.Domain.csproj": {
+                "projectPath": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/ProAtividade.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -77,6 +84,140 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.408/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Data/ProAtividade.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Data/ProAtividade.Data.csproj",
+        "projectName": "ProAtividade.Data",
+        "projectPath": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Data/ProAtividade.Data.csproj",
+        "packagesPath": "/home/gustavo/.nuget/packages/",
+        "outputPath": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/gustavo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/ProAtividade.Domain.csproj": {
+                "projectPath": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/ProAtividade.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.408/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/ProAtividade.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/ProAtividade.Domain.csproj",
+        "projectName": "ProAtividade.Domain",
+        "projectPath": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/ProAtividade.Domain.csproj",
+        "packagesPath": "/home/gustavo/.nuget/packages/",
+        "outputPath": "/home/gustavo/Workspace/FullStackDotNet/backend/src/ProAtividade.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/gustavo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
