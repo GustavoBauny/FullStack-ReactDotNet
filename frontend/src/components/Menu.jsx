@@ -9,8 +9,9 @@ export default function Menu() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-                <Nav.Link activeClassName='active' as={NavLink} to='/clientes'>Clientes</Nav.Link>
-                <Nav.Link activeClassName='active' as={NavLink} to='/atividades'>Atividades</Nav.Link>
+                <Nav.Link activeClassName='active' as={NavLink} to='/cliente/lista'>Clientes</Nav.Link>
+                <Nav.Link activeClassName='active' as={NavLink} to='/cliente/detalhe'>Cliente Detalhe</Nav.Link>
+                <Nav.Link activeClassName='active' as={NavLink} to='/atividade/lista'>Atividades</Nav.Link>
             </Nav>
             <Nav>
                 <NavDropdown align="end" title="Gustavo" id="basic-nav-dropdown">
