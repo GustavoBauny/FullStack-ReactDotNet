@@ -5,7 +5,7 @@ export default function Menu() {
   return (
     <Navbar bg="secondary" className='navbar-dark' expand="lg">
         <Container>
-            <Navbar.Brand as={NavLink} to='/home'>Menu de Ações</Navbar.Brand>
+            <Navbar.Brand as={NavLink} to='/'>Menu de Ações</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

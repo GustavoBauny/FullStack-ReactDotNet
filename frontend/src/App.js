@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Cliente from './pages/clientes/Cliente';
 import ClienteForm from './pages/clientes/ClienteForm';
 import Dashboard from './pages/home/Dashboard';
+import PageNotFound from './pages/home/PageNotFound';
 
 export default function App() {
     return (
@@ -11,7 +12,9 @@ export default function App() {
         <Route  path='/' exact component={Dashboard} />
         <Route  path='/atividade/lista' component={Atividade} />
         <Route  path='/cliente/lista' component={Cliente} />
-        <Route  path='/cliente/detalhe' component={ClienteForm} />
+        <Route  path='/cliente/:id/atividade' component={Atividade} />
+        <Route  path='/cliente/detalhe/:id?' component={ClienteForm} />
+        <Route component={PageNotFound} />
       </Switch>
     );
 }

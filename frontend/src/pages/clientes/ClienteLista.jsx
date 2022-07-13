@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Form, InputGroup } from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 import TitlePage from '../../components/TitlePage'
 
 const clientes = [
@@ -41,7 +42,9 @@ const clientes = [
 ]
 
 export default function ClienteLista() {
+  const history = useHistory();
   const [termoBusca, setTermoBusca] = useState('');
+
   const handleInputChange = (e) => {
       setTermoBusca(e.target.value);
   };
@@ -55,9 +58,18 @@ export default function ClienteLista() {
        )
   }); 
 
+  const novoCliente = () => {
+    history.push('/cliente/detalhe');
+  }
+
   return (
     <>
-      <TitlePage title="Cliente Lista" />
+      <TitlePage title="Cliente Lista">
+          <Button variant='outline-secondary' onClick={novoCliente}>
+            <i className='fas fa-plus me-2'></i>
+            Novo Cliente
+          </Button>
+      </TitlePage>
       <InputGroup className="mt-3 mb-3">
           <InputGroup.Text>
             Buscar:
@@ -88,7 +100,13 @@ export default function ClienteLista() {
               <td>{cliente.situacao}</td>
               <td>
                   <div>
-                      <button className='btn btn-sm btn-outline-primary me-2'>
+                      <button 
+                      className='btn btn-sm btn-outline-primary me-2' 
+                      onClick={() => history.push(
+                          `/cliente/detalhe/${cliente.id}`
+                      )
+                    }
+                  >
                         <i className='fas fa-user-edit me-2'></i>
                         Editar
                       </button>
